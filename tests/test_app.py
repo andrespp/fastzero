@@ -2,7 +2,6 @@ from http import HTTPStatus
 
 
 def test_root_deve_retornar_ok_e_ola_mundo(client):
-
     response = client.get('/')  # Act
 
     assert response.status_code == HTTPStatus.OK  # Assert
@@ -10,7 +9,6 @@ def test_root_deve_retornar_ok_e_ola_mundo(client):
 
 
 def test_create_user(client):
-
     response = client.post(
         '/create_user/',
         json={
@@ -22,7 +20,21 @@ def test_create_user(client):
 
     assert response.status_code == HTTPStatus.CREATED  # Assert
     assert response.json() == {
-            'id': 1,
-            'username': 'user',
-            'email': 'test_user@example.com',
-        }
+        'id': 1,
+        'username': 'user',
+        'email': 'test_user@example.com',
+    }
+
+
+def test_read_users(client):
+    response = client.get('/users/')
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {
+        'users': [
+            {
+                'id': 1,
+                'username': 'user',
+                'email': 'test_user@example.com',
+            }
+        ]
+    }
