@@ -18,9 +18,7 @@ def read_root():
 
 
 @app.post(
-    '/create_user/',
-    status_code=HTTPStatus.CREATED,
-    response_model=UserPublic
+    '/create_user/', status_code=HTTPStatus.CREATED, response_model=UserPublic
 )
 def create_user(user: UserSchema):
     """create_user"""
