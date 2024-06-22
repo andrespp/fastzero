@@ -43,3 +43,9 @@ post_test = 'coverage html'
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint]
+disable = [
+  "R0903",  # Too few public methods
+  "E0401",  # Unable to import
+]
