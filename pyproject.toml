@@ -45,7 +45,11 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pylint]
+max-line-length = 79
 disable = [
   "R0903",  # Too few public methods
   "E0401",  # Unable to import
+  "C0114",  # Missing module docstring
+  "C0115",  # Missing class docstring
+  "C0116",  # Missing function docstring
 ]
