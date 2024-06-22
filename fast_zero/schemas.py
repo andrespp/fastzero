@@ -20,13 +20,12 @@ class UserSchema(BaseModel):
 class UserPublic(BaseModel):
     """UserPublic"""
 
-    username: str
-    email: EmailStr
-
-
-class UserDB(BaseModel):
-    """UserPublic"""
-
     id: int
     username: str
     email: EmailStr
+
+
+class UserDB(UserSchema):
+    """UserPublic"""
+
+    id: int
