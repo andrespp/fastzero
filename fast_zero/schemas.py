@@ -22,3 +22,11 @@ class UserPublic(BaseModel):
 
     username: str
     email: EmailStr
+
+
+class UserDB(BaseModel):
+    """UserPublic"""
+
+    id: int
+    username: str
+    email: EmailStr
