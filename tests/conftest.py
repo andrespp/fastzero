@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 
 from fast_zero.app import app
 from fast_zero.models import table_registry
+from fast_zero.settings import Settings
 
 
 @pytest.fixture()
@@ -21,3 +22,8 @@ def session():
         yield s
 
     table_registry.metadata.drop_all(engine)
+
+
+@pytest.fixture()
+def settings():
+    return Settings()
